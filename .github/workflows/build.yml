@@ -32,10 +32,32 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/personalsite:latest
-      -
-        name: Deploy
-        uses: darnfish/watchtower-update@v3.3
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: "Call API"
+        uses: indiesdev/curl@v1.1
         with:
-          url: "${{ secrets.WATCHTOWER_URL }}"
-          api_token: "${{ secrets.WATCHTOWER_API_TOKEN }}"
-          images: "${{ secrets.DOCKER_HUB_USERNAME }}/personalsite"
+          # The target URL
+          # Required: true if custom-config is not set
+          url: 81.99.37.97:8080/v1/update
+
+          # List of response status codes to be accepted, else it will set the job to be failed
+          # If more than one value is needed, you can use comma (,) as separator
+          # In this case if the response status code is not one of 200, 201 and 204, the job will be failed
+          # Default is 200,201,204
+          accept: 200,201,204
+
+          # Request timeout (millisec)
+          # Default: 1000
+          timeout: 1000
+
+          # The authentication using token
+          # This will override the Authorization header, for example Authorization: Bearer QWxhZGRpbjpPcGVuU2VzYW1l
+          bearer-token: ${{ secrets.WATCHTOWER_API_TOKEN }}
+
+          # If it is set to true, it will show the response log in the GitHub UI
+          # Default: false
+          log-response: false
