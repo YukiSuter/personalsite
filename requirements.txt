@@ -9,6 +9,7 @@ MarkupSafe==2.1.5
 packaging==24.0
 pycparser==2.22
 pyOpenSSL==24.1.0
+python-dotenv==1.0.1
 rcssmin==1.1.1
 rjsmin==1.2.1
 setuptools==70.0.0
