@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   django_gunicorn:
+    image: yukisuter/personalsite
     volumes:
       - static:/static
     env_file: 
@@ -13,6 +14,7 @@ services:
 
   nginx:
     build: ./nginx
+    image: yukisuter/personalsitenginx
     volumes:
       - static:/static
     ports:
