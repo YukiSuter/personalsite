@@ -33,7 +33,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/personalsite:latest
 
-  republish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       -
