@@ -32,3 +32,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/personalsite:latest
+
+  republish:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Trigger 
+        uses: satak/webrequest-action@master
+          with:
+            url: 81.99.37.97:8080/v1/update
+            method: POST
+            payload: ''
+            headers: '{"Authentication": "Bearer ${{ env.TOKEN }}"}'
