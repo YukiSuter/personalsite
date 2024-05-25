@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-45-l^adckmvd!0pnnt-k5u=)tzne4-njg)p+7h66+x-u53au7d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.108.145.84', '127.0.0.1', '192.168.1.96', "192.168.1.251"]
+ALLOWED_HOSTS = ['100.108.145.84', '127.0.0.1', '192.168.1.96', "192.168.1.251", 'ycsuter.dev']
 
 
 COMPRESS_ROOT = BASE_DIR / 'static'
