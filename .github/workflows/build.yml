@@ -32,10 +32,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/personalsite:latest
-
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
       -
         name: Deploy
         uses: darnfish/watchtower-update@v3.2
