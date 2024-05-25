@@ -1,3 +1,7 @@
+FROM nginx:1.19.0-alpine
+
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
 FROM python:3.12-alpine
 
 COPY ./requirements.txt requirements.txt
