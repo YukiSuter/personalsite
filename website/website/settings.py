@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-45-l^adckmvd!0pnnt-k5u=)tzne4-njg)p+7h66+x-u53au7d'
+# SECRET_KEY = 'django-insecure-45-l^adckmvd!0pnnt-k5u=)tzne4-njg)p+7h66+x-u53au7d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = ['100.108.145.84', '127.0.0.1', '192.168.1.96', "192.168.1.251", 'ycsuter.dev']
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG')
+
+ALLOWED_HOSTS = ['100.108.145.84', '127.0.0.1', "192.168.1.251", 'ycsuter.dev', 'django']
 
 
 COMPRESS_ROOT = BASE_DIR / 'static'
@@ -45,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
-    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -124,7 +127,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = '/static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
