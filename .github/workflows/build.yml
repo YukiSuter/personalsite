@@ -39,8 +39,8 @@ jobs:
       -
         name: Trigger 
         uses: satak/webrequest-action@master
-          with:
-            url: 81.99.37.97:8080/v1/update
-            method: POST
-            payload: ''
-            headers: '{"Authentication": "Bearer ${{ env.TOKEN }}"}'
+        with:
+          url: 81.99.37.97:8080/v1/update
+          method: POST
+          payload: ''
+          headers: '{"Authentication": "Bearer ${{ env.TOKEN }}"}'
