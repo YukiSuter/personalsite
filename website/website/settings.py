@@ -35,11 +35,11 @@ DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = ['100.108.145.84', '127.0.0.1', "192.168.1.251", 'ycsuter.dev', 'django']
 
 
-COMPRESS_ROOT = BASE_DIR / 'static'
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
-COMPRESS_ENABLED = True
-
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 
 # Application definition
@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -130,15 +129,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_URL = '/static/'
+
+# This is where collectstatic will place all collected static files
 STATIC_ROOT = '/static/'
-STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
-
-print(STATICFILES_DIRS)
-print(BASE_DIR)
+# This is where Django will look for additional static files, in addition to app-specific static directories
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
