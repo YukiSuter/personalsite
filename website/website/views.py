@@ -5,3 +5,6 @@ def home(request):
 
 def about(request):
     return render(request, 'about/index.html', {'active_page': 'about'})
+
+def projects(request):
+    return render(request, 'projects/index.html', {'active_page': 'projects'})
