@@ -132,7 +132,7 @@ STATIC_URL = '/static/'
 
 # This is where collectstatic will place all collected static files
 STATIC_ROOT = '/static/'
-
+#
 # This is where Django will look for additional static files, in addition to app-specific static directories
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
