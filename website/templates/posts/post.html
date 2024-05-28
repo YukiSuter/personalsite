@@ -1,0 +1,12 @@
+
+
+{% extends "core/_base.html" %}
+
+{% load website_extras %}
+
+{% block content %}
+    <h1 class="text-3xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left">{{ post.title }}</h1>
+
+    <p>{{post.content | markdown}}</p>
+
+{% endblock content %}

@@ -3,6 +3,9 @@
 import os
 import sys
 
+from django.utils.safestring import mark_safe
+from django.utils.html import conditional_escape
+
 
 def main():
     """Run administrative tasks."""
