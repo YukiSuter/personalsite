@@ -811,6 +811,10 @@ h2 {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .overflow-x-scroll {
   overflow-x: scroll;
 }

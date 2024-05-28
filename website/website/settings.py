@@ -17,6 +17,7 @@ import os
 if os.getenv("DEBUG") is not None:
     pass
 else:
+    print("No environment variable found, loading from .env file")
     load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -94,17 +95,9 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-print("Debug state: ", DEBUG)
+print("Debug state:", DEBUG)
 
-if DEBUG == True:
-    print("Using local database")
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
+if DEBUG == False:
     print("Using static database")
     DATABASES = {
         'default': {
@@ -113,6 +106,15 @@ else:
         }
     }
 
+else:
+    print("Using local database")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+    
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
