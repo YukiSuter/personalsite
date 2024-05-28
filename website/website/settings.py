@@ -69,6 +69,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'website.urls'
 
+CSRF_TRUSTED_ORIGINS = ['https://*.ycsuter.dev/']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
