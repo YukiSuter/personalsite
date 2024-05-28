@@ -69,6 +69,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'website.urls'
 
+# Make sure the login works
 CSRF_TRUSTED_ORIGINS = ['https://*.ycsuter.dev/']
 
 TEMPLATES = [
