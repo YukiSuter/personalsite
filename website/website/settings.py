@@ -97,6 +97,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 print("Debug state: ", DEBUG)
 
 if DEBUG:
+    print("Using local database")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -104,6 +105,7 @@ if DEBUG:
         }
     }
 else:
+    print("Using static database")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
