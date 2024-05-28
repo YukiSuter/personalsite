@@ -94,6 +94,8 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+print("Debug state: ", DEBUG)
+
 if DEBUG:
     DATABASES = {
         'default': {
