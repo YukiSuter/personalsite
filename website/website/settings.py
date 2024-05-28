@@ -15,10 +15,23 @@ from dotenv import load_dotenv
 import os
 
 if os.getenv("DEBUG") is not None:
-    pass
+    print("Using static database")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME':  '/static/personalsite_db.sqlite3',
+        }
+    }
 else:
     print("No environment variable found, loading from .env file")
     load_dotenv()
+    print("Using local database")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -97,23 +110,6 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 print("Debug state:", DEBUG)
 
-if DEBUG == False:
-    print("Using static database")
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME':  '/static/personalsite_db.sqlite3',
-        }
-    }
-
-else:
-    print("Using local database")
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
     
 
 # Password validation
