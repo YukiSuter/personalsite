@@ -1,0 +1,24 @@
+<a style="display:block" href="/posts/{{post.title}}">
+    <div class="w-80 h-96 drop-shadow-lg bg-white dark:bg-slate-500">
+        <div class="h-2/6 w-full bg-black"></div>
+        <div class="px-4 pb-2 h-4/6">
+            <div class="h-1/6 mt-4 w-full">
+                <h2 class="text-xl whitespace-nowrap text-ellipsis">{{post.title}}</h2>
+            </div>
+            <div class="h-3/6 w-full -mt-2">
+                <p class="line-clamp-5   text-md">{{post.content}}</p>
+            </div>
+            <div class="flex flex-row gap-x-2 h-1/6 py-1 w-full overflow-x-scroll">
+                {% for tag in post.tags.all %}
+                    {% include 'core/tag.html' with tagname=tag.name%}
+                {% endfor %}
+
+                
+            </div>
+            <div class="h-1/6 -mt-2 w-full">
+                <h2 class="text-sm">Last updated: {{post.date|date:"d/m/Y"}}</h2>
+            </div>
+        </div>
+        
+    </div>
+</a>
