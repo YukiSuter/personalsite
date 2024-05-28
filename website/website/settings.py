@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 print("Debug state: ", DEBUG)
 
-if DEBUG:
+if DEBUG == True:
     print("Using local database")
     DATABASES = {
         'default': {
