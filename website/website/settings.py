@@ -14,7 +14,12 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-if os.getenv("DEBUG") is not None:
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
+if os.getenv("DEBUG") == False:
     print("Using static database")
     DATABASES = {
         'default': {
@@ -23,8 +28,7 @@ if os.getenv("DEBUG") is not None:
         }
     }
 else:
-    print("No environment variable found, loading from .env file")
-    load_dotenv()
+    print("Detected debug environment")
     print("Using local database")
     DATABASES = {
         'default': {
@@ -32,10 +36,6 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -159,7 +159,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 if DEBUG:
-    MEDIA_ROOT = '/media/'
+    MEDIA_ROOT = '/home/yukisuter/Documents/websiteMediaFiles'
 else:
     MEDIA_ROOT = '/mediafiles/'
 

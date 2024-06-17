@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+
+from website import settings
 from .views import home, about, projects, project, post, posts
 
 urlpatterns = [
@@ -26,4 +29,10 @@ urlpatterns = [
     path('projects/<str:project_name>', project, name="project"),
     path('posts/', posts, name="projects"),
     path('posts/<str:blog_post>', post, name="post")
+
+    # path('media/', media, name="media")
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

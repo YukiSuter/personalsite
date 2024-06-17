@@ -36,3 +36,4 @@ def post(request, blog_post):
     except Exception as e:
         return render(request, e)
 
+# def media(request):
