@@ -25,8 +25,9 @@ def project(request, project_name):
 
 def posts(request):
     posts = BlogPost.objects.all()
+    tags = BlogTag.objects.all()
 
-    return render(request, 'posts/index.html', {'active_page': 'blog', 'posts': posts, 'tags': BlogTag.objects.all()})
+    return render(request, 'posts/index.html', {'active_page': 'blog', 'posts': posts, 'tags': tags})
 
 def post(request, blog_post):
     try:

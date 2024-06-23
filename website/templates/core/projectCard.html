@@ -14,7 +14,7 @@
             <div class="h-3/6 w-full -mt-2">
                 <p class="line-clamp-5   text-md">{{project.description}}</p>
             </div>
-            <div class="flex  flex-row gap-x-2 h-1/6 py-1 w-full overflow-x-scroll">
+            <div id="tagRow" class="flex  flex-row gap-x-2 h-1/6 py-1 w-full overflow-x-scroll">
                 {% for tag in project.tags.all %}
                     {% include 'core/tag.html' with tagname=tag.name%}
                 {% endfor %}

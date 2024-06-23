@@ -5,9 +5,13 @@
 {% load website_extras %}
 
 {% block content %}
+    <article class="prose">
+
     <h1 class="text-3xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left">{{ project.name }}</h1>
 
     <p>{{project.description}}</p>
+
+    </article>
 
     <h2 class="text-xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left mt-4">Linked blog posts:</h2>
     {% for post in project.linkedBlogposts.all %}

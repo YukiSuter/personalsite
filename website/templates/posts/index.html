@@ -2,17 +2,30 @@
 
 {% extends "core/_base.html" %}
 
+
+
 {% block content %}
+    <script type="text/javascript" src="/static/src/js/tagFilters.js"></script>
+
+    {% for tag in tags %}
+        <script type="text/javascript">console.log("Adding tag: " + "{{tag}}")</script>
+        <script type="text/javascript">registerTags("{{tag}}")</script>
+    {% endfor %}
 
     <h1 class="text-3xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left">My Blog</h1>
     <div>
         <p class="dark:text-gray-100">Below are my blog posts. Please use the tags to filter.</p>
     </div>
 
-    <div class="flex flex-row flex-wrap justify-center p-2 gap-x-6 gap-y-6 mt-4"> <!-- Project Container -->
+    <div id="filterContainer" class="flex flex-row flex-wrap justify-center"> 
+    
+    </div>
+
+    <div id="cardContainer" class="flex flex-row flex-wrap justify-center p-2 gap-x-6 gap-y-6 mt-4"> <!-- Project Container -->
         {% for post in posts %}
             {% include 'core/postCard.html' with post=post %}
         {% endfor %}
     </div>
+        <script type="text/javascript">createFilters()</script>
 
 {% endblock content %}
