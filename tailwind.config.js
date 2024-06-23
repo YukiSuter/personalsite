@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./website/templates/**/*.{html,js}","./website/static/src/js/*.{html,js}"],
   theme: {
-    extend: {    
+    extend: {  
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch', // add required value here
+          }
+        }
+      }  
     },
   },
   plugins: [
