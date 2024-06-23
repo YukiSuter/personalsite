@@ -21,7 +21,7 @@ print("ENV: ", os.getenv("DEBUG"))
 
 
 
-if os.getenv("DEBUG") == False:
+if os.getenv("DEBUG") == "False":
     print("Using static database")
     DATABASES = {
         'default': {
