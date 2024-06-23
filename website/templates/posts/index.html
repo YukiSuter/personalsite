@@ -5,7 +5,7 @@
 
 
 {% block content %}
-    <script type="text/javascript" src="/static/src/js/tagFilters.js"></script>
+    <script type="text/javascript" src="/static/src/js/postFilters.js"></script>
 
     {% for tag in tags %}
         <script type="text/javascript">console.log("Adding tag: " + "{{tag}}")</script>
@@ -14,15 +14,16 @@
 
     <h1 class="text-3xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left">My Blog</h1>
     <div>
-        <p class="dark:text-gray-100">Below are my blog posts. Please use the tags to filter.</p>
+        <p class="dark:text-gray-100">Below are my blog posts. Please use the tags to choose which categories to show.</p>
     </div>
 
-    <div id="filterContainer" class="flex flex-row flex-wrap justify-center"> 
+    <div id="filterContainer" class="flex flex-row flex-wrap justify-center p-3 pt-5 space-x-5"> 
     
     </div>
 
     <div id="cardContainer" class="flex flex-row flex-wrap justify-center p-2 gap-x-6 gap-y-6 mt-4"> <!-- Project Container -->
         {% for post in posts %}
+            <script type="text/javascript">registerPost("{{post.title}}", [{% for tag in post.tags.all %}"{{tag.name}}",{% endfor %}])</script>
             {% include 'core/postCard.html' with post=post %}
         {% endfor %}
     </div>

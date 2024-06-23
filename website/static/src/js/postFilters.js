@@ -1,6 +1,8 @@
 const tagArray = [];
 const selectedArray = [];
 
+postTags = {}
+
 const clickedClass = "flex items-center rounded-2xl border-2 border-gray-700 bg-gray-700 dark:border-slate-200 dark:bg-slate-200 w-fit h-full px-2"
 const clickedClass_text = "text-sm text-gray-100 dark:text-gray-700 "
 const emptyClass = "flex items-center rounded-2xl border-2 border-gray-700 dark:border-slate-200 w-fit h-full px-2"
@@ -38,6 +40,11 @@ function registerTags(tag) {
     selectedArray[selectedArray.length] = false;
 }
 
+// Function called from HTML to register the posts with this code
+function registerPost(post, tags) {
+    postTags[post] = tags;
+}
+
 // Function that creates the HTML elements that are clicked on to filter
 function createFilters() {
     for (let i=0; i<tagArray.length; i++) {
@@ -50,7 +57,37 @@ function createFilters() {
 function updateCards() {
     console.log(tagArray);
     console.log(selectedArray);
+    console.log(postTags);
 
-    cards = document.getElementById("cardContainer").children
+    if (selectedArray.includes(true) ){
+        for (const post in postTags) {
+            // console.log("Inspecting: " + post)
+            // console.log(postTags[post])
+
+            if (postTags[post].length > 0) {
+                foundTag = "hidden"
+                for (i=0; i<postTags[post].length; i++) {
+                    // console.log("foundchild")
+                    // console.log("Inspecting: " + post + ": " + postTags[post][tag])
+                    if (selectedArray[tagArray.indexOf(postTags[post][i])]) {
+                        // console.log("Selected")
+                        foundTag = "";
+                    }
+                }
+
+                document.getElementById("postcard_" + post).className = foundTag;
+            } else {
+                console.log("hidden")
+                document.getElementById("postcard_" + post).className = "hidden"
+            }
+            
+        }
+    } else {
+        for (const post in postTags) {
+            document.getElementById("postcard_" + post).className = ""
+        }
+    }
+
+    
 
 }
