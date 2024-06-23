@@ -36,7 +36,7 @@ class ProjectTag(models.Model):
     def __str__(self): return self.name
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=64)
     date = models.DateTimeField(auto_now=True)
     content = models.TextField() # In markdown!
     tags = models.ManyToManyField(BlogTag, null=True, blank=True)
@@ -47,7 +47,7 @@ class BlogPost(models.Model):
         return self.date.isoformat() +  ": " + self.title   
 
 class Project(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=64)
     tags = models.ManyToManyField(ProjectTag, null=True, blank=True)
     description = models.TextField() # Brief description
     linkedBlogposts = models.ManyToManyField(BlogPost, null=True, blank=True)
