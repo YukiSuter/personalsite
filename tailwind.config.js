@@ -17,9 +17,6 @@ module.exports = {
   ],
   safelist: [
     'hidden',
-    'flex',
-    'flex-1',
-    'flex-none'
   ]
 }
 
