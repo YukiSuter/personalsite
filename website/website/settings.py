@@ -29,6 +29,7 @@ if os.getenv("DEBUG") == "False":
             'NAME':  '/static/personalsite_db.sqlite3',
         }
     }
+    MEDIA_ROOT = '/static/uploadedImages/'
 else:
     print("Detected debug environment")
     print("Using local database")
@@ -38,6 +39,7 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+    MEDIA_ROOT = '/home/yukisuter/Documents/websiteMediaFiles'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -159,12 +161,6 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-
-if DEBUG:
-    MEDIA_ROOT = '/home/yukisuter/Documents/websiteMediaFiles'
-else:
-    MEDIA_ROOT = '/static/uploadedImages/'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
