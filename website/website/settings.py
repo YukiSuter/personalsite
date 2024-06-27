@@ -29,7 +29,7 @@ if os.getenv("DEBUG") == "False":
             'NAME':  '/static/personalsite_db.sqlite3',
         }
     }
-    MEDIA_ROOT = '/static/uploadedImages/'
+    MEDIA_ROOT = '/static/media/'
 else:
     print("Detected debug environment")
     print("Using local database")
