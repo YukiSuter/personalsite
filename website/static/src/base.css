@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    /* h1 {
+    h1 {
         @apply text-3xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left;
     }
     h2 {
@@ -11,5 +11,5 @@
     }
     p {
         @apply dark:text-gray-100;
-    } */
+    }
 }
