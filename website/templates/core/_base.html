@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuki Suter</title>
 
-    {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <link rel="stylesheet" href="/static/src/output.css" />
@@ -28,9 +28,9 @@
 
 </head>
 
-<body class="bg-gray-200 dark:bg-gray-700 mx-10 xl:mx-96 lg:mx-40 md:mx-20 sm:mx-10">
+<body class="flex flex-col bg-gray-200 dark:bg-gray-700 mx-10 xl:mx-96 lg:mx-40 md:mx-20 sm:mx-10 h-screen justify-between">
     {% include 'core/topbar.html' %}
-    <div class="container mt-6 p-4">
+    <div class="flex-1 mt-6 p-4">
         {% block content %}
         {% endblock content %}
     </div>
