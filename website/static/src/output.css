@@ -602,40 +602,6 @@ h2 {
   --tw-contain-style:  ;
 }
 
-.container {
-  width: 100%;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
-
 .prose {
   color: var(--tw-prose-body);
   max-width: 100ch;
@@ -1248,6 +1214,10 @@ h2 {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .w-3\/6 {
   width: 50%;
 }
@@ -1278,6 +1248,14 @@ h2 {
   width: max-content;
 }
 
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-none {
+  flex: none;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -1296,6 +1274,10 @@ h2 {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .justify-evenly {
@@ -1592,6 +1574,13 @@ h2 {
   .xl\:mx-96 {
     margin-left: 24rem;
     margin-right: 24rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:size-80 {
+    width: 20rem;
+    height: 20rem;
   }
 }
 
