@@ -163,7 +163,7 @@ MEDIA_URL = '/media/'
 if DEBUG:
     MEDIA_ROOT = '/home/yukisuter/Documents/websiteMediaFiles'
 else:
-    MEDIA_ROOT = '/mediafiles/'
+    MEDIA_ROOT = '/static/uploadedImages/'
 
 
 # Default primary key field type
