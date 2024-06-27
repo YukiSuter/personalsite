@@ -16,7 +16,10 @@ module.exports = {
     require('@tailwindcss/typography'),
   ],
   safelist: [
-    'hidden'
+    'hidden',
+    'flex',
+    'flex-1',
+    'flex-none'
   ]
 }
 
