@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    brances:
+    branches:
       - "main"
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
         with:
           # The target URL
           # Required: true if custom-config is not set
-          url: ${{ WATCHTOWER_URL }}
+          url: ${{ secrets.WATCHTOWER_URL }}
 
           # List of response status codes to be accepted, else it will set the job to be failed
           # If more than one value is needed, you can use comma (,) as separator
