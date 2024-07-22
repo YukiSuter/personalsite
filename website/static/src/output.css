@@ -1158,6 +1158,10 @@ h2 {
   margin-top: 1.5rem;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .line-clamp-5 {
   overflow: hidden;
   display: -webkit-box;
@@ -1482,6 +1486,10 @@ h2 {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
 }
 
 .text-center {

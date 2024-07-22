@@ -37,7 +37,7 @@ class ProjectTag(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=64)
-    date = models.DateTimeField(auto_now=True)
+    date = models.DateTimeField(auto_now=False)
     content = models.TextField() # In markdown!
     tags = models.ManyToManyField(BlogTag, null=True, blank=True)
     attachments = models.ManyToManyField(File, null=True, blank=True)
