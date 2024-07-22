@@ -13,9 +13,9 @@ def projects(request):
 
     return render(request, 'projects/index.html', {'active_page': 'projects', 'projects': projects, 'tags': ProjectTag.objects.all()})
 
-def project(request, project_name):
+def project(request, project_id):
     try:
-        project = Project.objects.get(name=project_name)
+        project = Project.objects.get(id=project_id)
 
         return render(request, 'projects/project.html', {'active_page': 'projects', 'project': project})
     except Exception as e:
@@ -31,7 +31,7 @@ def posts(request):
 
 def post(request, blog_post):
     try:
-        post = BlogPost.objects.get(title=blog_post)
+        post = BlogPost.objects.get(id=blog_post)
 
         return render(request, 'posts/post.html', {'active_page': 'blog', 'post': post})
     except Exception as e:

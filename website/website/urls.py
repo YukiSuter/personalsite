@@ -26,7 +26,7 @@ urlpatterns = [
     path('', home, name="home"),
     path('about/', about, name="about"),
     path('projects/', projects, name="projects"),
-    path('projects/<str:project_name>', project, name="project"),
+    path('projects/<str:project_id>', project, name="project"),
     path('posts/', posts, name="projects"),
     path('posts/<str:blog_post>', post, name="post")
 
