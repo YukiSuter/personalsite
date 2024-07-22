@@ -14,7 +14,9 @@
     </article>
 
     <h2 class="text-xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left mt-4">Linked blog posts:</h2>
+    <div id="cardContainer" class="flex flex-row flex-wrap justify-center p-2 gap-x-6 gap-y-6 mt-4"> <!-- Project Container -->
     {% for post in project.linkedBlogposts.all %}
         {% include 'core/postCard.html' with post=post root_url="/projects/" %}
     {% endfor %}
+    </div>
 {% endblock content %}
