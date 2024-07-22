@@ -44,7 +44,10 @@ class BlogPost(models.Model):
     thumbnail = models.ForeignKey(Image, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return self.date.isoformat() +  ": " + self.title   
+        return self.date.isoformat() +  ": " + self.title  
+    
+    class Meta:
+        ordering = ['date'] 
 
 class Project(models.Model):
     name = models.CharField(max_length=64)
@@ -55,3 +58,6 @@ class Project(models.Model):
     thumbnail = models.ForeignKey(Image, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self): return self.name
+    
+    class Meta:
+        ordering = ['name'] 
