@@ -12,6 +12,7 @@
         {{post.content | markdown}}
     </article>
 
+    
     <h2 class="text-xl dark:text-gray-100 font-semibold pb-4 text-center sm:text-left mt-4">Attachments:</h2>
     {% for attachment in post.attachments.all %}
         {% include 'core/attachmentCard.html' with attachment=attachment root_url="/posts/" %}

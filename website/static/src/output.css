@@ -1401,6 +1401,14 @@ h2 {
   fill: #64748b;
 }
 
+.fill-gray-100 {
+  fill: #f3f4f6;
+}
+
+.fill-gray-900 {
+  fill: #111827;
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
