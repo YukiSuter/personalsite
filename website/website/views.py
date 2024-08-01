@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Project, BlogPost, BlogTag, ProjectTag
+from .models import Project, BlogPost, BlogTag, ProjectTag, Image
 import markdown
 
 def home(request):
-    return render(request, 'home/index.html', {'active_page': 'home'})
+    return render(request, 'home/index.html', {'profile_photo_url': Image.objects.get(name="profile_photo").file.url, 'active_page': 'home'})
 
 def about(request):
     return render(request, 'about/index.html', {'active_page': 'about'})
