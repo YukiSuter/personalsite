@@ -37,7 +37,7 @@ class ProjectTag(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=64)
-    url_friendly = models.CharField(max_length=64, default="", blank=True)
+    url_friendly = models.CharField(max_length=64, default="", blank=True, unique=True)
     date = models.DateTimeField(auto_now=False)
     content = models.TextField() # In markdown!
     tags = models.ManyToManyField(BlogTag, null=True, blank=True)
@@ -57,7 +57,7 @@ class BlogPost(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=64)
-    url_friendly = models.CharField(max_length=64, default="", blank=True)
+    url_friendly = models.CharField(max_length=64, default="", blank=True, unique=True)
     tags = models.ManyToManyField(ProjectTag, null=True, blank=True)
     description = models.TextField() # Brief description
     linkedBlogposts = models.ManyToManyField(BlogPost, null=True, blank=True)
