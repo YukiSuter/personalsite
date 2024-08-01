@@ -57,7 +57,7 @@ class BlogPost(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=64)
-    url__friendly = models.CharField(max_length=64, default="", blank=True)
+    url_friendly = models.CharField(max_length=64, default="", blank=True)
     tags = models.ManyToManyField(ProjectTag, null=True, blank=True)
     description = models.TextField() # Brief description
     linkedBlogposts = models.ManyToManyField(BlogPost, null=True, blank=True)
@@ -67,8 +67,8 @@ class Project(models.Model):
     def __str__(self): return self.name
 
     def save(self, *args, **kwargs):
-        if (self.url__friendly == ""):
-            self.url__friendly = self.name.replace(" ", "_")
+        if (self.url_friendly == ""):
+            self.url_friendly = self.name.replace(" ", "_")
         super(Project, self).save(*args, **kwargs)
     
     class Meta:
