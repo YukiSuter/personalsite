@@ -53,7 +53,7 @@ else:
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['100.108.145.84', '127.0.0.1', "192.168.1.251", 'ycsuter.dev', 'django']
+ALLOWED_HOSTS = ['100.108.145.84', '127.0.0.1', "192.168.1.251", 'ycsuter.dev', 'django', 'yukisuter.com']
 
 
 STATICFILES_FINDERS = [
