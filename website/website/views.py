@@ -15,7 +15,7 @@ def projects(request):
 
 def project(request, project_url):
     try:
-        # project = Project.objects.get(url_friendly=project_url)
+        project = Project.objects.get(url_friendly=project_url)
 
         return render(request, 'projects/project.html', {'active_page': 'projects', 'project': project})
     except Exception as e:
