@@ -9,7 +9,7 @@
         <h1 class="text-3xl dark:text-gray-100 font-bold text-center sm:text-left pb-0 mb-0">{{ post.title }}</h1>
         <p class="pb-4">{{post.date|date:"d/m/Y"}}</p>
 
-        {{post.content | markdown | linebreaks}}
+        {{post.content | markdown}}
     </article>
 
     
