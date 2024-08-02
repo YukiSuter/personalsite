@@ -37,6 +37,7 @@ class ProjectTag(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=64)
+    url_friendly = models.CharField(max_length=64, default="", blank=True, unique=True)
     date = models.DateTimeField(auto_now=False)
     content = models.TextField() # In markdown!
     tags = models.ManyToManyField(BlogTag, null=True, blank=True)
@@ -45,12 +46,18 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.date.isoformat() +  ": " + self.title  
+
+    def save(self, *args, **kwargs):
+        if (self.url_friendly == ""):
+            self.url_friendly = self.title.replace(" ", "_")
+        super(BlogPost, self).save(*args, **kwargs)
     
     class Meta:
         ordering = ['date'] 
 
 class Project(models.Model):
     name = models.CharField(max_length=64)
+    url_friendly = models.CharField(max_length=64, default="", blank=True, unique=True)
     tags = models.ManyToManyField(ProjectTag, null=True, blank=True)
     description = models.TextField() # Brief description
     linkedBlogposts = models.ManyToManyField(BlogPost, null=True, blank=True)
@@ -58,6 +65,11 @@ class Project(models.Model):
     thumbnail = models.ForeignKey(Image, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self): return self.name
+
+    def save(self, *args, **kwargs):
+        if (self.url_friendly == ""):
+            self.url_friendly = self.name.replace(" ", "_")
+        super(Project, self).save(*args, **kwargs)
     
     class Meta:
         ordering = ['name'] 

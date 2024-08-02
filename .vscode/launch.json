@@ -12,7 +12,7 @@
             "program": "website/manage.py",
             // "python": "'E:\\UserData\\Yuki\\Documents\\GitHub Repos\\personalsite\\website-venv-win\\Scripts\\python'",
             "console": "integratedTerminal",
-            "args": "runserver 0.0.0.0:8000",
+            "args": "runserver 0.0.0.0:8000 --noreload",
             "env": {
                 "DEBUG": "true",
                 "SECRET_KEY": "ghjkloiuywghbnjiuyhghjk"
